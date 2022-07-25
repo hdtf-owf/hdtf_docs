@@ -1,0 +1,4 @@
+site_name: Basic MkDocs Example Project
+theme:
+  name: readthedocs
+  highlightjs: true
