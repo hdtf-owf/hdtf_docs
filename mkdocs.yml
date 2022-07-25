@@ -1,6 +1,6 @@
 site_name: "HDTF : TECHNICAL DOCMENTATION"
 theme:
-  name: "HDTF DOCS"
+  name: readthedocs
   highlightjs: true
 plugins:
   - search
