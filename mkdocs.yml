@@ -1,1 +1,16 @@
-site_name: "Hunt Down The Freeman: Technical Documentation"
+site_name: "HDTF : TECHNICAL DOCMENTATION"
+theme:
+  name: "HDTF DOCS"
+  highlightjs: true
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        # See: https://mkdocstrings.github.io/python/usage/
+        python:
+          options:
+            docstring_style: sphinx
+markdown_extensions:
+  - markdown_include.include:
+      base_path: .
+  - admonition
