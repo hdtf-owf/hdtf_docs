@@ -1,4 +1,9 @@
-site_name: Basic MkDocs Example Project
+site_name: "Hunt Down The Freeman: Technical Documentation"
 theme:
   name: readthedocs
   highlightjs: true
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
