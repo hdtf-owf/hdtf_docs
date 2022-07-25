@@ -1,0 +1,522 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.3.9">
+    
+    
+      
+        <title>PBR - Hunt Down The Freeman: Technical Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pbr" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Hunt Down The Freeman: Technical Documentation" class="md-header__button md-logo" aria-label="Hunt Down The Freeman: Technical Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hunt Down The Freeman: Technical Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PBR
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Hunt Down The Freeman: Technical Documentation" class="md-nav__button md-logo" aria-label="Hunt Down The Freeman: Technical Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Hunt Down The Freeman: Technical Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Welcome to the HDTF:TechDocs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/" class="md-nav__link">
+        Usage
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Shaders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Shaders" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Shaders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        PBR
+      </a>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="pbr">PBR</h1>
+<p>HDTF has support for two PBR shader.</p>
+<p>One is called "<strong>PBR</strong>" the other one is called "<strong>PBR_Override</strong>"
+The <strong>PBR</strong> shader is what you would expect, a PBR shader.
+The <strong>PBR_Override</strong> Shader is a Shader designed for use with default materials
+This means it's a simple override for Shader names to allow for special effects.
+However it does not allow some other effects and is merely designed for already existing source materials.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The "PBR" Shader supports certain effects.
+The usual PBR effects such as:</p>
+<ul>
+<li>Emissive mapping</li>
+<li>Parallax mapping / height mappimg / displacement mapping / ... / whatever other name you can come up with</li>
+<li>Bump mapping</li>
+<li>Alphatesting, a basic transparency effect</li>
+<li>MRAO maps, not technically an effect, but it should be mentioned you can't specify       individual texture maps.</li>
+<li>Envmapping, enabled by default, always.</li>
+</ul>
+<p>And a special effect called:</p>
+<ul>
+<li>Parallax Corrected Cubemaps, a way to correct cubemaps so they properly allign with a predefined rectangular boundary.</li>
+</ul>
+</div>
+<p>The "PBR_Override" Shader supports following effects.
+The usual PBR effects such as:
+-Emissive mapping, in source terms this is RGB selfillum maps
+-Parallax mapping / height mappimg / displacement mapping / ... / whatever other name you can come up with
+-Bumpmapping
+-Alphatesting, a basic transparency effect
+-Envmapping, enabled by default, always.</p>
+<p>The special effect called
+-Parallax Corrected Cubemaps, a way to correct cubemaps so they properly allign with a predefined rectangular boundary.</p>
+<p>And the following</p>
+<ul>
+<li>Envmapmask by Basealpha</li>
+<li>Envmapmask by Normalalpha</li>
+<li>No Envmapmasking</li>
+<li>Flipping the Envmapmask</li>
+<li>Modifying Envmap Tint</li>
+<li>Modifying Envmap Contrast</li>
+<li>Modifying Envmap Saturation</li>
+</ul>
+<p>Here is how it works, for both shaders</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you want to use the PBR Shader on a model, define :
+<code class="highlight"><span class="n">$model</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"></span></code>
+Otherwise you will receive errors, on models. Don't define if you don't use it on a model.
+Keep in mind, Models use per origin lighting and ambient cubes.
+Models using the pbr shaders do NOT support model lightmapping, vertex lighting.</p>
+</div>
+<p>Define the Basetexture using :
+$Basetexture    "path\texturename"
+When not defined, uses a default white texture instead.</p>
+<p>Define a Bumpmap using :
+$Bumpmap    "path\texturename"
+For proper PBR this must be assigned.</p>
+<p>Enable Alphatesting using :
+$Alphatest  "bool"
+Default is 0. Uses the Alphachannel of the Basetexture for the Opacity mask.</p>
+<p>Define Alphatest Reference using
+( The reference to which the mask should be considered ) :
+$Alphatestreference "float"
+usually from 0-1. Default is 0</p>
+<p>Define a RGB Emissive Texture using
+$emissiontexture    "path\texturename"
+again, its rgb.</p>
+<p>Enable Parallax Occlusion Mapping / Height Mapping / Displacement Mapping.......... using :
+$Parallax "bool"
+This uses the Alphachannel of the Bumpmap for the Heightmap / Displacement Map / ...
+Default is 0</p>
+<p>Define the "depth" of the parallax map using :
+$Parallaxdepth "float"
+Default is "0.0030"</p>
+<p>Define the "center depth" of the parallax map using :
+$Parallaxcenter "float"
+Default is "0.5"</p>
+<p>Some OG parameters will work such as $nocull "bool"
+Use at your own risk.</p>
+<p>Parameters ONLY for the "PBR" Shader :</p>
+<p>Define the MRAO Map :
+$Mraotexture    "path\texturename"
+If you don't know what an MRAO texture is, look up examples online...</p>
+<p>Parameters ONLY for the "PBR_Override" Shader :</p>
+<p>Define the alpha channel of the basetexture for Envmapmasking using:
+$Basealphamask "bool"
+Internally this sets the Alphachannel of the basetexture as the metallic mask.
+The inverse will be used for roughness. AO is defaulted to "1.0"</p>
+<p>Define the alpha channel of the basetexture for Envmapmasking using:
+$Normalalphamask "bool"
+Internally this sets the Alphachannel of the bumpmap as the metallic mask.
+The inverse will be used for roughness. AO is defaulted to "1.0"</p>
+<p>Flip the mask internally using:
+$Flipenvmapmask "bool"
+This is intended to be used for materials that previously used $basemapalphaenvmapmask
+As it is notorious for being magically being flipped in Valve's spaghetti lazer shadercode on seemingly random occassions.</p>
+<p>If you don't specify either $Basealphamask or $Normalalphamask it will set metallic as "1.0" ( White )
+Also $Basealphamask &amp; $Normalalphamask at the same time is not supported. its one or nothing.</p>
+<p>Tint the envmap using:
+$Envmaptint "[floatscale floatscale floatscale]"
+in "[R G B]", if you don't know what RGB is use your favorite search engine
+Example $envmaptint "[0.9 0.0 0.0]"
+This will make the envmap reflection only reflect as red.</p>
+<p>Contrast the Envmap using:
+$Envmapcontrast "floatscale" ( from 0.0 up to 9.9 don't try more digits, for now. )
+0.0 is normal and 1.0 is color*color
+Define this even if you don't use it.</p>
+<p>Saturate the envmap using:
+$Envmapsaturation "floatscale" ( from 0.0 up to 9.9 don't try more digits, for now. )
+1.0 is normal, 0 is greyscale.
+Define this even if you don't use it.</p>
+<p>Parameters used for Parallax Corrected Cubemaps on BOTH Shaders :</p>
+<p>Disclaimer : these are set automatically when compiling the map
+However that is not the case for models, if you require models to have it for some reason I might be oblivious to
+You can manually define them. I expect however that you actually know what you are doing, therefore no explanation.</p>
+<p>Turn on PCC
+$Envmapparallax "bool"</p>
+<p>Set parallax obbs
+$Envmapparallaxobb1 "[float float float float]"
+$Envmapparallaxobb2 "[float float float float]"
+$Envmapparallaxobb3 "[float float float float]"</p>
+<p>Where the envmap is in the world
+$Envmaporigin   "[float float float]"</p>
+<h1 id="qa">Q&amp;A :</h1>
+<p>Question :
+My Material appears to be pure black, why?</p>
+<p>Answers :</p>
+<ol>
+<li>
+<p>Make sure you have built cubemaps, they are required for PBR to work correctly.</p>
+</li>
+<li>
+<p>If your material is very metallic, make sure the AO Channel is not totally Black
+If your material uses PBR_Override, this cannot be the case, proceed with the other points.</p>
+</li>
+<li>
+<p>Make sure the material does not have high metallic and high roughness values.
+This could cause great visual problems on the model, including a full black model
+If your material uses PBR_Override, this cannot be the case, proceed with the other points.</p>
+</li>
+<li>
+<p>Make sure the Bumpmap and MRAO Texture are NOT imported as sRGB
+Also make sure that the Normalmap is NOT saved in any texture format with only 8 bits.
+Normal maps ( generated with ANY modern texturing software ) are 16 bits, and you should ALWAYS pay attention for this.
+Any other texture maps are read as sRGB, saving them differently won't change this fact.</p>
+</li>
+<li>
+<p>Potential cause us very dark Basetextures on very metallic objects.
+( it just multiplies it all together in the shadercode, so if everything is black... yeah )</p>
+</li>
+<li>
+<p>Its not actually receiving light. Try pointing a projected_texture at it.
+If even then you can't see <em>anything</em> then something is very wrong.</p>
+</li>
+</ol>
+<p>Question :
+How do I use Parallax Corrected Cubemaps?</p>
+<p>Answer :
+Make a env_cubemap in the RECTANGULAR Room, that you want to have PCC in, as possible.
+Make a RECTANGULAR Brush encapsulating the entire Room.
+Make it an entity of class "Parallax_obb" and give it a name.
+Define brush faces to use Parallax Corrected Cubemaps in the properties of the env_cubemap.
+( Keep in mind Parallax Corrected Cubemaps are ONLY supported for Brushmaterials using the PBR or PBR_Override Shader )
+Define the Parallax_Obb in the "Cubemap Bounds" field
+Compile the map and build cubemaps, after reloading all materials / restarting the game,
+brushfaces assigned to the cubemap should be parallax corrected.</p>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../../usage/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Usage" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Usage
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      
+    
+  </body>
+</html>
