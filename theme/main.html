@@ -2,7 +2,7 @@
 
 {% block extrahead %}
     {% if page and page.meta and page.meta.og_title %}
-        <meta property="og:title" content="{{ page.meta.og_title }}" />
+        <meta property="og:title" content="{{ "HDTF:DOCS - " ~ page.meta.og_title }}" />
     {% elif page and page.meta and page.meta.title %}
         <meta property="og:title" content="{{ page.meta.title }}" />
     {% endif %}
