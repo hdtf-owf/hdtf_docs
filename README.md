@@ -46,7 +46,7 @@ You can build and view this documentation project locally - we recommend that yo
 
 ```console
 # Install required Python dependencies (MkDocs etc.)
-pip install -r docs/requirements.txt
+pip install mkdocs-material
 
 # Run the mkdocs development server
 mkdocs serve
