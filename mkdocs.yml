@@ -1,9 +1,16 @@
+
+site_name: "Hunt Down The Freeman: Tech Docs"
+site_description: 'Docs for features in HDTF'
+site_author: 'Nbc66'
+site_url: 'https://nbc66.github.io/hdtf_docs/'
+
 site_name: "Hunt Down The Freeman: Technical Documentation"
 theme:
   name: material
   palette:
     scheme: slate
   highlightjs: true
+  custom_dir: 'theme'
   hljs_languages:
      - yaml
      - rust

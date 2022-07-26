@@ -1,4 +1,14 @@
+---
+title: PBR
+description: "explaining how the PBR shader in HDTF WORKS"
+hero: "SHADER: PBR"
+og_title: "SHADER: PBR"
+page_path: misc/
+og_image: "images/pbr/shadingComparison2.jpg"
+---
+
 # PBR
+
 
 <figure markdown>
   ![PHONG vs PBR Comparison](../images/pbr/shadingComparison2.jpg){ width="1920" }
