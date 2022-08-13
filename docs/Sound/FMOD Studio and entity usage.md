@@ -4,7 +4,7 @@ description: "explaining how FMOD Studio in HDTF WORKS"
 hero: "SOUND: FMOD Studio"
 og_title: "SOUND: FMOD Studio"
 page_path: misc/
-og_image: "images/sound/logic_fmod_music.png"
+og_image: "images/fmod/logic_fmod_music.png"
 ---
 
 # FMOD Studio
