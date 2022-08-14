@@ -29,7 +29,7 @@ However it does not allow some other effects and is merely designed for already 
     The usual PBR effects such as:
 
     - ***Emissive mapping***
-    - ***Parallax mapping / height mappimg / displacement mapping / ... / whatever other name you can come up with***
+    - ***Parallax mapping / height mapping / displacement mapping / ... / whatever other name you can come up with***
     - ***Bump mapping***
     - ***Alphatesting, a basic transparency effect***
     - ***MRAO maps, not technically an effect, but it should be mentioned you can't specify       individual texture maps.***
