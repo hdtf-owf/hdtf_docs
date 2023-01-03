@@ -39,7 +39,7 @@ the following activitys used for staged reloads are
  - **`ACT_VM_STAGE_EMPTY_MAGIN`**
  - **`ACT_VM_STAGE_BOLTRELEASE`**
  
-thes are the activitys that are called when the correspoding
+thes are the activitys that are called when the corresponding
 animation event is set to `1`
 
 ## Emaxple Sequences
