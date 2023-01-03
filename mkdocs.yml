@@ -5,10 +5,17 @@ site_author: 'Nbc66'
 site_url: 'https://nbc66.github.io/hdtf_docs/'
 
 site_name: "Hunt Down The Freeman: Technical Documentation"
+
+extra_css:
+  - stylesheets/extra.css
+
 theme:
+  favicon: images/icon/hdtf_icon.jpg
+  logo: images/icon/hdtf_icon.jpg
   name: material
   palette:
     scheme: slate
+    accent: red
   highlightjs: true
   custom_dir: 'theme'
   hljs_languages:
