@@ -1,10 +1,9 @@
 ---
 title: Staged Reloads
-description: "explaining how the PBR shader in HDTF WORKS"
+description: "explaining how Staged Reloads in HDTF work"
 hero: "Mechanics: Staged Reloads"
-og_title: "SHADER: PBR"
+og_title: "Mechanics: Staged Reloads"
 page_path: misc/
-og_image: "images/pbr/shadingComparison2.jpg"
 ---
 
 # Staged Reloads
@@ -205,7 +204,7 @@ we need to setup propper bodygroups
 for the weapons itself
 and for the magzine
 
-### Example BodyGroups
+### `Example BodyGroups`
 
 the following is a properly setup bodygroup for the weapon viewmodel
 
