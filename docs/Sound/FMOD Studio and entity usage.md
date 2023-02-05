@@ -161,7 +161,7 @@ all you need to do is put the bank files in a vpk and set ``IS Load From VPK`` t
 
 remember that the path inside the vpk should be the same
 
-example: sound/fmod/<your map name here\>
+example: ``sound/fmod/<your map name here\>``
 
 you can put your vpk file in the custom folder and Voilà
 it will work just like magic
