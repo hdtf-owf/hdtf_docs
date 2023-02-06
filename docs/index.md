@@ -1,10 +1,10 @@
 # Home
 
-## Weclome to the HDTF: Tech Docs
+## Welcome to the HDTF: Tech Docs
 
 ![](https://upload.wikimedia.org/wikipedia/en/thumb/4/42/Hunt_Down_The_Freeman_header_art.jpg/1000px-Hunt_Down_The_Freeman_header_art.jpg)
 
-this site is used to documment how technical or gameplay features work inside of hdtf
+this site is used to document how technical or gameplay features work inside of hdtf
 
 [Go to docs!](documentation/Mechanics/Staged%20Reloads.md){ .md-button .md-button--primary }
 
