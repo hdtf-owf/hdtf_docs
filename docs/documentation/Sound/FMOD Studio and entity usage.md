@@ -9,7 +9,7 @@ og_image: "images/fmod/logic_fmod_music.png"
 
 # FMOD Studio
 <figure markdown>
-  ![FMOD STUDIO APP](../images/fmod/FMOD_Studio_zQmmlfwVZP.png){ width="1920" }
+  ![FMOD STUDIO APP](../../images/fmod/FMOD_Studio_zQmmlfwVZP.png){ width="1920" }
   <figcaption>FMOD STUDIO APP showcase</figcaption>
 </figure>
 
@@ -29,7 +29,7 @@ FMOD is a proprietary sound effects engine and authoring tool for video games an
 ## logic_fmod_music
 
 <figure markdown>
- ![](../images/fmod/logic_fmod_music.png){width="200" loading=lazy }
+ ![](../../images/fmod/logic_fmod_music.png){width="200" loading=lazy }
  <figcaption>FMOD Enitity icon used by hammer</figcaption>
 </figure>
 we curently have a new entity inside of Hunt Down the Freeman
@@ -168,7 +168,9 @@ it will work just like magic
 
 if you have any more questions feel free to join the hdtf disocrd here:
 
-[HDTF Community Discord Server](https://discord.gg/hdtf)
+[HDTF Community Discord Server](https://discord.gg/hdtf){ .md-button .md-button--primary }
+
+{% include 'discord_include.html' %}
 
 ***Thank you for reading!***
 

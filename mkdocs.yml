@@ -4,12 +4,23 @@ site_description: 'Docs for features in HDTF'
 site_author: 'Nbc66'
 site_url: 'https://nbc66.github.io/hdtf_docs/'
 
-site_name: "Hunt Down The Freeman: Technical Documentation"
+repo_url: https://github.com/Nbc66/hdtf_docs
+repo_name: "Nbc66/hdtf_docs"
+
+# site_name: "Hunt Down The Freeman: Technical Documentation"
+
+plugins:
+  - search
+  - macros:
+      include_dir: _includes
+
 
 extra_css:
   - stylesheets/extra.css
 
 theme:
+  features:
+    - navigation.tabs
   favicon: images/icon/hdtf_icon.jpg
   logo: images/icon/hdtf_icon.jpg
   name: material
@@ -30,5 +41,8 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - attr_list
   - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true

@@ -11,7 +11,7 @@ og_image: "images/pbr/shadingComparison2.jpg"
 
 
 <figure markdown>
-  ![PHONG vs PBR Comparison](../images/pbr/shadingComparison2.jpg){ width="1920" }
+  ![PHONG vs PBR Comparison](../../images/pbr/shadingComparison2.jpg){ width="1920" }
   <figcaption>PHONG vs PBR Comparison</figcaption>
 </figure>
 
