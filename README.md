@@ -33,8 +33,8 @@ so you might need to run the following command
 
 ## Final Notes
 
-thank you for taking an interest in the developemnt of Hunt Down the Freeman and its documentation
+thank you for taking an interest in the development of Hunt Down the Freeman and its documentation
 
-we appreaciate all the help we can get!
+we appreciate all the help we can get!
 
-made with :heart:  by [@Nbc66](https://github.com/Nbc66)
+made with :heart: by [@Nbc66](https://github.com/Nbc66)
