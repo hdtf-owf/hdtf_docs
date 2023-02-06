@@ -1,3 +1,6 @@
+---
+title: Technical Docs
+---
 # Home
 
 ## Welcome to the HDTF: Tech Docs
