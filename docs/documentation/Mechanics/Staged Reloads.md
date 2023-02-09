@@ -5,14 +5,10 @@ hero: "Mechanics: Staged Reloads"
 og_title: "Mechanics: Staged Reloads"
 page_path: misc/
 ---
+{% import 'main_image.html' as image %}
 
 # Staged Reloads
-
-
-<figure markdown>
-  <iframe width="1920" height="500" src="https://www.youtube.com/embed/T3gaPpjdyCM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <figcaption>Staged Reloads Showcase</figcaption>
-</figure>
+{{- image.main_image( is_youtube=true, content="T3gaPpjdyCM", footer_text="Video showcasing Staged reload's") -}}
 
 HDTF has support for Staged Reloads.
 
@@ -33,13 +29,13 @@ they are turned on and off based on a animation frame
 
 ## Activity Names
 
-the following activitys used for staged reloads are
+the following activity's used for staged reloads are
 
  - **`ACT_VM_STAGE_MAGIN`**
  - **`ACT_VM_STAGE_EMPTY_MAGIN`**
  - **`ACT_VM_STAGE_BOLTRELEASE`**
  
-thes are the activitys that are called when the corresponding
+these are the activity's that are called when the corresponding
 animation event is set to `1`
 
 ## Emaxple Sequences

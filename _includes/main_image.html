@@ -1,0 +1,28 @@
+<!-- 
+content is usually marked an image but a bool can be set to true if you want to embed a youtube video 
+
+the content var for for images can also use relative paths to use images from the "images" folder
+
+please note that for youtube video embeds content should be a youtube video id
+
+so be careful
+
+-Nbc66
+-->
+
+{% macro main_image( footer_text='palceholder text' ,content='https://via.placeholder.com/1920x500' , is_youtube=false ) %}
+{% if is_youtube == true %}
+    {% if content=='https://via.placeholder.com/1920x500' %}
+        {% set content='bQx91RR3Y8o' %}
+    {% endif %}
+<figure html>
+    <iframe width="1920" height="450" src="https://www.youtube.com/embed/{{ content }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+    <figcaption>{{ footer_text }}</figcaption>
+</figure>
+{% else %}
+<figure markdown>
+![{{ footer_text }}]({{ content }}){ width="1920" }
+    <figcaption>{{ footer_text }}</figcaption>
+</figure>
+{% endif %}
+{% endmacro %}
