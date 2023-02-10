@@ -18,14 +18,24 @@
 
     {% if page and page.meta and page.meta.page_path and page.meta.og_image %}
         <meta name="twitter:card" content="summary_large_image">
+        {% if 'http' in page.meta.og_image  %}
+        <meta property="og:image" content="{{ page.meta.og_image }}" />
+        {% else %}
         <meta property="og:image" content="{{ config.site_url ~ page.meta.og_image }}" />
-        <meta property="twitter:image" content="{{ config.site_url ~ page.meta.og_image }}" />
-    {% elif page and page.meta and page.meta.og_image %}
+        {% endif %}
+    {% endif %}
+    {% if page and page.meta and page.meta.og_image %}
         <meta name="twitter:card" content="summary_large_image">
+        {% if 'http' in page.meta.og_image  %}
         <meta property="og:image" content="{{ page.meta.og_image }}" />
         <meta property="twitter:image" content="{{ page.meta.og_image }}" />
+        {% else %}
+        <meta property="og:image" content="{{ config.site_url ~ page.meta.og_image }}" />
+        <meta property="twitter:image" content="{{ config.site_url ~ page.meta.og_image }}" />
+        {% endif %}
     {% else %}
         <meta property="og:image:url" content="{{ config.site_url ~ config.theme.favicon }}" />
+        <meta property="twitter:image" content="{{ config.site_url ~ config.theme.favicon }}" />
     {% endif %}
 
     {% if page and page.meta and page.meta.og_image_type %}
