@@ -5,6 +5,7 @@ hero: "Mechanics: Viewmodel Arms"
 og_title: "Mechanics: Viewmodel Arms"
 page_path: misc/
 og_image: "https://steamuserimages-a.akamaihd.net/ugc/1894345102686279579/25B9FD45693359D46AE610CE153F0B4C13971172/?imw=1920&imh=1080&ima=fit&impolicy=Letterbox&imcolor=%23000000"
+og_type: "video.other"
 ---
 # Viewmodel Arms
 {% import 'main_image.html' as image %}
