@@ -11,6 +11,18 @@ repo_name: "Nbc66/hdtf_docs"
 
 plugins:
   - search
+  - glightbox:
+       touchNavigation: true
+       loop: false
+       effect: fade
+       slide_effect: slide
+       width: 100vh
+       height: auto
+       height-min: 100%
+       zoomable: true
+       draggable: true
+       auto_caption: false
+       caption_position: bottom
   - macros:
       include_dir: _includes
 

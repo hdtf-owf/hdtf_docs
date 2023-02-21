@@ -6,13 +6,9 @@ og_title: "SOUND: FMOD Studio"
 page_path: misc/
 og_image: "images/fmod/logic_fmod_music.png"
 ---
-
+{% import 'main_image.html' as image %}
 # FMOD Studio
-<figure markdown>
-  ![FMOD STUDIO APP](../../images/fmod/FMOD_Studio_zQmmlfwVZP.png){ width="1920" }
-  <figcaption>FMOD STUDIO APP showcase</figcaption>
-</figure>
-
+{{- image.main_image(content="../../images/fmod/FMOD_Studio_zQmmlfwVZP.png", footer_text="FMOD STUDIO APP showcase") -}}
 
 
 FMOD is a proprietary sound effects engine and authoring tool for video games and applications developed by Firelight Technologies, that play and mix sounds of diverse formats on many operating systems.
@@ -74,14 +70,14 @@ If you want to learn more please take a look at this playlist on youtube for mor
 <iframe style=" display: block;
     margin-left: auto;
     margin-right: auto"
-   width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLcZl-HDwmxfNbiDsLZNFUviHe4dP56vqE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+   width="100%" height="425" src="https://www.youtube.com/embed/videoseries?list=PLcZl-HDwmxfNbiDsLZNFUviHe4dP56vqE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 **another great tutorial explaining how fmod works**
 
 <iframe style=" display: block;
     margin-left: auto;
     margin-right: auto"
-     width="560" height="315" src="https://www.youtube.com/embed/7A1HMOsD2eU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+     width="100%" height="425" src="https://www.youtube.com/embed/7A1HMOsD2eU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Basic tutorial for hammer
 
