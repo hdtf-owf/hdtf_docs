@@ -76,6 +76,12 @@ If you want to learn more please take a look at this playlist on youtube for mor
     margin-right: auto"
    width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLcZl-HDwmxfNbiDsLZNFUviHe4dP56vqE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
+**another great tutorial explaining how fmod works**
+
+<iframe style=" display: block;
+    margin-left: auto;
+    margin-right: auto"
+     width="560" height="315" src="https://www.youtube.com/embed/7A1HMOsD2eU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Basic tutorial for hammer
 
