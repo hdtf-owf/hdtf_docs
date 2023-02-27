@@ -34,33 +34,45 @@ its called `logic_fmod_music`
 
 we use this entity to allow us to edit paramteres with hammer I/O with paramteres that are defined inside of FMOD Studio
 
-the entity has the following parameters
+the entity has the following parameters:
 
-- BankFile - this refers to the bank file that you want to use located inside of `sound\fmod`
+### KEY FIELDS
 
-### KEYS
+- Name targetname `<target_source>` - The name that other entities refer to this entity by.
 
-- Name targetname <target_source\> - The name that other entities refer to this entity by.
+- BankFile BankFile `<string>` - BankFile to import.
 
-- BankFile BankFile <string\> - BankFile to import.
+- EventName Event_path `<string>` - Name of Event
 
-- EventName Event_path <string\> - Name of Event
+- Is Loaded From VPK IsLoadedFromVPK `<choices>` - if the files for fmod are loaded from a vpk file
 
-- Is Loaded From VPK IsLoadedFromVPK <choices\> - if the files for fmod are loaded from a vpk file
+- SourceEntityName `<target_destination>` - If an entity is specified, sound will come from this named entity instead of the location of logic_fmod_music.
 
-- Param 1 SetparamName1 <string\> - Param 1 Name
 
-- Param 2 SetparamName2 <string\> - Param 2 Name
 
-- Param 3 SetparamName3 <string\> - Param 3 Name
 
-- Param 4 SetparamName4 <string\> - Param 4 Name
+- Param 1 SetparamName1 `<string>` - Param 1 Name
+
+- Param 2 SetparamName2 `<string>` - Param 2 Name
+
+- Param 3 SetparamName3 `<string>` - Param 3 Name
+
+- Param 4 SetparamName4 `<string>` - Param 4 Name
 
 
 ### INPUTS
 - Start - Start the audio
 
 - Stop - Stop the audio
+
+- SetParameter1To `<float>` - Set Param 1 to (Float/Int)
+ 
+- SetParameter2To `<float>` - Set Param 2 to (Float/Int)
+ 
+- SetParameter3To `<float>` - Set Param 3 to (Float/Int)
+
+- SetParameter4To `<float>` - Set Param 4 to (Float/Int)
+  
 
 ## Basics
 we will not be covering how to use fmod studio in this section.
@@ -159,11 +171,11 @@ here is a video of it in action:
 
 we also support loading the bank files from a ``VPK``
 
-all you need to do is put the bank files in a vpk and set ``IS Load From VPK`` to ``Yes`` inside the KeyField of the entity
+all you need to do is put the bank files in a VPK and set ``IS Load From VPK`` to ``Yes`` inside the KeyField of the entity
 
-remember that the path inside the vpk should be the same
+remember that the path inside the VPK should be the same
 
-example: ``sound/fmod/<your map name here\>``
+example: ``sound/fmod/<your map name here>``
 
 you can put your vpk file in the custom folder and Voilà
 it will work just like magic

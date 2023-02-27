@@ -10,15 +10,41 @@ so be careful
 -Nbc66
 -->
 
+<style>
+    .auto-resizable-iframe {
+        max-width: 100%;
+        margin: 0px auto;
+      }
+      
+      .auto-resizable-iframe>div {
+        position: relative;
+        padding-bottom: 75%;
+        height: 0px;
+      }
+      
+      .auto-resizable-iframe iframe {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+      }
+      
+</style>
+
 {% macro main_image( footer_text='palceholder text' ,content='https://via.placeholder.com/1920x500' , is_youtube=false ) %}
 {% if is_youtube == true %}
     {% if content=='https://via.placeholder.com/1920x500' %}
-        {% set content='bQx91RR3Y8o' %}
+        {% set content='XgqTrvcAySA' %}
     {% endif %}
-<figure style="width: 100%;">
-    <iframe width="100%" height="430" src="https://www.youtube.com/embed/{{ content }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-    <figcaption>{{ footer_text }}</figcaption>
-</figure>
+<div class="auto-resizable-iframe">
+    <div>
+    <figure style="width: 100%">
+        <iframe width="100%" height="420" src="https://www.youtube.com/embed/{{ content }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+        <figcaption>{{ footer_text }}</figcaption>
+    </figure>
+    </div>
+</div>
 {% else %}
 <figure markdown style="width: 100%;">
 ![{{ footer_text }}]({{ content }}){ width="100%" height="430" }
