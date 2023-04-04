@@ -19,9 +19,7 @@ HDTF supports seperate arms from the viewmodels akin to L4D, Garry's mod and CSG
 
 ## Using arms with weapons
 
-As the transition from the old HL2 style v_models will take time, by default weapons do not have any arm models attached. To attach arms the associated weapon script requires a `default_arms` entry.
-
-To specify different arms for different acts of the game there is: `snow_arms` for Act 2, `jacket_arms` for Act 3 and `camp_arms` for the Tutorial. If any of the act specific entries are absent or blank the model specified with `default_arms` will be used instead.
+As the transition from the old HL2 style v_models will take time, by default weapons do not have any arm models attached. To attach arms the associated weapon script requires a `uses_arms` entry set to `1`.
 
 ```
 // Example using scripts/weapon_knife.txt
@@ -31,10 +29,7 @@ WeaponData
 	"viewmodel"				"models/weapons/v_knife.mdl"
 	"playermodel"			"models/weapons/w_knife.mdl"
     ...
-    "default_arms"  "models/weapons/arms/v_arms_hecu.mdl"            // act 1
-    "snow_arms"     "models/weapons/arms/v_arms_winter_survivor.mdl" // act 2
-    "jacket_arms"   "models/weapons/arms/v_arms_coat.mdl"            // act 3
-    "camp_arms"     "models/weapons/arms/v_arms_camp.mdl"            // tutorial
+    "uses_arms"  "1"
     ...
 }
 ```
