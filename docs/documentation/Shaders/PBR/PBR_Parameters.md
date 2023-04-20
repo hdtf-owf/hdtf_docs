@@ -80,9 +80,9 @@ Note : Incompatible with $PropertiesTexture ( Wetness/Porosity ) due to Sampler 
 
 Without SSS
 
-!["Dyson" Model from Urban Chaos without SSS ](https://i.imgur.com/nzli9bK.jpeg)WIth
+!["Dyson" Model from Urban Chaos without SSS ](https://i.imgur.com/nzli9bK.jpeg)
 
-slight SSS
+With slight SSS
 
 !["Dyson" Model from Urban Chaos with SSS ](https://i.imgur.com/ZlMleFJ.jpeg)"Overgrown"
 
