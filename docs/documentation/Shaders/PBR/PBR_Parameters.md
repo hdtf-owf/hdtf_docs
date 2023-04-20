@@ -4,10 +4,10 @@
 
  - PBR for Brushes
  - PBR_MODEL for models
- - Use any of $BaseTexture2, $MRAOTexture2, $BumpMap2....
- etc. to use Blended Materials ( Displacement Shader )
+ - Use $BaseTexture2, $MRAOTexture2, $BumpMap2.... for Blended Materials ( Displacements )
  
  **IMPORTANT**
+
  Having your material inside materials/models/ folder will automatically force $Model flag and thus PBR_MODEL
 
 ## Features for Models
@@ -37,10 +37,14 @@ Here are available parameters and what they do.
  Note that this is full wetness and its not really masked. Up-Facing Normals will be forced to 1, which will give the appearance of full submersion of the material. 
  
  ![Cliff model from Urban Chaos with full Wetness](https://i.imgur.com/XWOf2HB.jpeg)
+ 
  - ### Detail Textures
+ 
  See [Detail Textures on the Valve Developer Community ( VDC )](https://developer.valvesoftware.com/wiki/$detail)
+ 
  Note that some of the Blendmodes might have unexpected results. ( BlendMode 11 )
  Also $DetailBlendMode 10 is currently not implemented on Brushes and cannot be implemented on Models.
+ 
 Note : Incompatible with $PropertiesTexture ( Wetness/Porosity ) due to Sampler Limitation.
 
  - ### Sub-Surface Scattering
@@ -48,47 +52,53 @@ Note : Incompatible with $PropertiesTexture ( Wetness/Porosity ) due to Sampler 
  The effect itself will not be explained, you can use online reference for that instead.
  In our Shader there are various parameters to control the effect, here they are.
  
-
-    // Refer to PBR Textures, R is the Thickness, GBA is RGB Color.
-     "$SSSTexture"	"path/name"
+	// Refer to PBR Textures, R is the Thickness, GBA is RGB Color.
+	"$SSSTexture"	"path/name"
      
-    // Float. Controls the spread of the SSS. If you can't spread enough, adjust Thickness.
-    // Default is 1.0, but 5 might be more reasonable.
-    "$SSSPower"	"5"
-     
-    // Adjust strength before being applied to anything.
-    // This is useful for when you want $SSSEmission AND regular Emission.
-    // However, it eventually just acts like $SSSEmission itself.
-    "$SSSScale"	"1.0"
-    
-    // Only applied to regular SSS and not $SSSEmission.
-    // Multiplier for the intensity of the SSS Effect. Default of 1.0
-    "$SSSIntensity" "1.0"
-    
-    // Tint for the SSS Color. If the texture does not have an alpha channel,
-    // set blue to 0, this might happen automatically on the shader in a future update.
-    "$SSSTint" "[R G B]"
-    
-    // SSS Emission is a special effect that will output the Emissiontexture multiplied by SSS separetely.
-    // This was intended to add glow to more solid objects like the crystals.
-    // This will force glow to only appear on dark/shadowed areas.
-    // But whether or not we find a use remains to be seen. Default Value is 0.0, its a float.
-    "$SSSEmission" "0.0"
+	// Float. Controls the spread of the SSS. If you can't spread enough, adjust Thickness.
+	// Default is 1.0, but 5 might be more reasonable.
+	"$SSSPower"	"5"
+	
+	// Adjust strength before being applied to anything.
+	// This is useful for when you want $SSSEmission AND regular Emission.
+	// However, it eventually just acts like $SSSEmission itself.
+	"$SSSScale"	"1.0"
+	
+	// Only applied to regular SSS and not $SSSEmission.
+	// Multiplier for the intensity of the SSS Effect. Default of 1.0
+	"$SSSIntensity" "1.0"
+	
+	// Tint for the SSS Color. If the texture does not have an alpha channel,
+	// set blue to 0, this might happen automatically on the shader in a future update.
+	"$SSSTint" "[R G B]"
+	
+	// SSS Emission is a special effect that will output the Emissiontexture multiplied by SSS separetely.
+	// This was intended to add glow to more solid objects like the crystals.
+	// This will force glow to only appear on dark/shadowed areas.
+	// But whether or not we find a use remains to be seen. Default Value is 0.0, its a float.
+	"$SSSEmission" "0.0"
 
 Without SSS
-!["Dyson" Model from Urban Chaos without SSS ](https://i.imgur.com/nzli9bK.jpeg)WIth slight SSS
-!["Dyson" Model from Urban Chaos with SSS ](https://i.imgur.com/ZlMleFJ.jpeg)"Overgrown" dark side using $SSSEmission.
+
+!["Dyson" Model from Urban Chaos without SSS ](https://i.imgur.com/nzli9bK.jpeg)WIth
+
+slight SSS
+
+!["Dyson" Model from Urban Chaos with SSS ](https://i.imgur.com/ZlMleFJ.jpeg)"Overgrown"
+
+dark side using $SSSEmission.
+
 !["Dyson" Model from Urban Chaos but he has an Crystal Infestation or something ](https://i.imgur.com/4uWGlzU.jpeg)
  
  - ### Bent Normals
  Explanation you must find online.
  Bent Normals will occlude only occlude specular reflection areas and is a separate texture from the actual $BumpMap!
  This effect can be activated using
- 
 
-    "$BentNormal" "path/name"
+	"$BentNormal" "path/name"
 
- The Bent Normal must be in Tangent Space
+ The Bent Normal must be in Tangent Space!
+ And it might only have real visible effects on models with actual self occlusion.
 
 Without Bent Normals
 ![Cloth Model without Bent Normals](https://i.imgur.com/9QaR6h5.jpeg)
@@ -162,7 +172,9 @@ Here are available parameters and what they do.
     "$SSSEmission"		"1"
 
 ![Xen Bulb without Emission](https://i.imgur.com/5Hi6GTB.jpeg)![Xen Bulb with Emission](https://i.imgur.com/fTxAqlx.jpeg)
+
  - ### Model Lightmapping & Lightmap UV's
+ 
  Non-Bumped Model Lightmaps are supported on our Shader.
  Dynamic light entities ( such as projected textures or named lights ) still cause a specular highlight through the bumpmap. Otherwise, static lights will have their lighting baked. This is ideal if you want nice Shadows for a Model.
  
@@ -193,7 +205,9 @@ An old development screenshot showing off Lightmap UVs on a Pyramid Model ![An i
     "$MicroShadows" "0.0"
 
 0% MicroShadows...
-![An image of some props with no Microshadows](https://i.imgur.com/VVUNS9h.jpeg)100% MicroShadows.
+![An image of some props with no Microshadows](https://i.imgur.com/VVUNS9h.jpeg)
+
+100% MicroShadows.
 ![An image of some props with Microshadows](https://i.imgur.com/7jrTWs0.jpeg)
 Note that the corners near the keypads are noticeably darker. The amount of occlusion and direction depends on that of the light which is shining upon the model.
 
@@ -205,7 +219,8 @@ Note that the corners near the keypads are noticeably darker. The amount of occl
  It means that the Cubemaps that is applied to brushes will be stretched to a predefined boundary area.
  This will essentially align the reflections with the scenery objects and the boundary of a room.
  This is unideal if the middle of the room is obstructed by objects and it cannot really be used for non-rectangular rooms. Use non-rectangular rooms and PCC at your own potential waste of time!
- As for how to use them, [See this Tutorial on Source Tricks Website](https://mrkleiner.github.io/source_tricks/?lt=7780847a)
+ As for how to use them,
+ [See this Tutorial on Source Tricks Website](https://mrkleiner.github.io/source_tricks/?lt=7780847a)
 
 ### For these, see "Features for Models"
  - ### Wetness Porosity
@@ -217,30 +232,31 @@ Note that the corners near the keypads are noticeably darker. The amount of occl
  - ### Wetness Porosity
 Displacements additionally receive following Parameters for Blending multiple Textures.
 
-    // Second texture for both Wetness/Porosity AND VectorLayers
-    "$PropertiesTexture2" "path/name"
-    "$WetnessBias2"	"0"
+	// Second texture for both Wetness/Porosity AND VectorLayers
+	"$PropertiesTexture2" "path/name"
+	"$WetnessBias2"	"0"
 
  - ### Vector dependent Layering Textures ( VectorLayers )
 Displacements additionally receive following Parameters for Blending multiple Textures.
 
-    // Second texture for both Wetness/Porosity AND VectorLayers
-    "$PropertiesTexture2" "path/name"
-    "$VectorLayerTexture2" "path/name"
-    "$LayerVector2"	"[X Y Z]"
-    "$LayerVectorSimilarity2" "0.3"
+	// Second texture for both Wetness/Porosity AND VectorLayers
+	"$PropertiesTexture2" "path/name"
+	"$VectorLayerTexture2" "path/name"
+	"$LayerVector2"	"[X Y Z]"
+	"$LayerVectorSimilarity2" "0.3"
 
  - ### Emission Textures ( Also see "Features for Models" )
  Displacements additionally receive following Parameters for Blending multiple Textures.
  ShiroDkxtro2 Note : Second Emission Texture might be broken right now due to a bug with s15.
 
-    // Please note that this texture can not be tinted.
-    "$EmissionTexture2" "path/name"
+	// Please note that this texture can not be tinted.
+	"$EmissionTexture2" "path/name"
 
  - ### Seamless Mapping & $Seamless_Secondary
  For information about Seamless Mapping, [See this VDC Article](https://developer.valvesoftware.com/wiki/$seamless_scale) 
-Now for the interesting part. $Seamless_Secondary
-ShiroDkxtro2 : As of today ( 17.04.2023 DMY ), this feature has not been fully implemented and seamless is kinda broken too. I will fix it as soon as I can. But this DOES work on LUX_ Shaders!
+ Now for the interesting part. $Seamless_Secondary
+ ShiroDkxtro2 : As of today ( 17.04.2023 DMY ), this feature has not been fully implemented and seamless is kinda broken too. 
+ I will fix it as soon as I can. But this DOES work on LUX_ Shaders!
 
 Seamless Secondary allows to only have the second material to be seamless. This is very useful if you want to retain texture alignment whilst being able to account for stretchy textures on strong displacement inclines.
  - ### Parallax Occlusion Mapping
