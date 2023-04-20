@@ -19,6 +19,8 @@ run these commands inside a command line or terminal
 
 ``pip install mkdocs-macros-plugin``
 
+``pip install mkdocs-glightbox``
+
 next cd into your clone of the repo and run the following command
 
 ``mkdocs serve``
