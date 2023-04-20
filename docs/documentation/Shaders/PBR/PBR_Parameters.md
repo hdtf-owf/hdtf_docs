@@ -51,7 +51,7 @@ Note : Incompatible with $PropertiesTexture ( Wetness/Porosity ) due to Sampler 
  Sub-Surface Scattering should be used sparingly as it does everything a usual shader does **and SSS**.
  The effect itself will not be explained, you can use online reference for that instead.
  In our Shader there are various parameters to control the effect, here they are.
- 
+
     // Refer to PBR Textures, R is the Thickness, GBA is RGB Color.
     "$SSSTexture"	"path/name"
      
@@ -126,12 +126,12 @@ Incompatible with $EmissionTexture
  6. Fire Burn Mark Spreading Texture
  7. Liquid Flow Restriction ( Liquids should only be on surfaces that point upwards. )
 
-Vector Layers do not have their own Normal Maps and will thus not affect the actual thickness of its own layer.
-Additionally they do not have their own metallic properties, this was done for several reasons.
-1. All of the above shouldn't be metallic.
-2. These are supposed to be THIN layers, they should not affect the underlying material surface normals
+ Vector Layers do not have their own Normal Maps and will thus not affect the actual thickness of its own layer.
+ Additionally they do not have their own metallic properties, this was done for several reasons.
+ 1. All of the above shouldn't be metallic.
+ 2. These are supposed to be THIN layers, they should not affect the underlying material surface normals
 
-Using a VectorLayer requires two textures. You can find more information about them in the documentation about Textures and their requirements.
+ Using a VectorLayer requires two textures. You can find more information about them in the documentation about Textures and their requirements.
 
     // The actual Texture to be applied to that Vector. Alpha is Ambient Occlusion.
     // Specifying this, will enable the effect.
