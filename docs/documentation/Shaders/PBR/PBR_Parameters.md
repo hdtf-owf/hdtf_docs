@@ -52,31 +52,31 @@ Note : Incompatible with $PropertiesTexture ( Wetness/Porosity ) due to Sampler 
  The effect itself will not be explained, you can use online reference for that instead.
  In our Shader there are various parameters to control the effect, here they are.
  
-	// Refer to PBR Textures, R is the Thickness, GBA is RGB Color.
-	"$SSSTexture"	"path/name"
+    // Refer to PBR Textures, R is the Thickness, GBA is RGB Color.
+    "$SSSTexture"	"path/name"
      
-	// Float. Controls the spread of the SSS. If you can't spread enough, adjust Thickness.
-	// Default is 1.0, but 5 might be more reasonable.
-	"$SSSPower"	"5"
-	
-	// Adjust strength before being applied to anything.
-	// This is useful for when you want $SSSEmission AND regular Emission.
-	// However, it eventually just acts like $SSSEmission itself.
-	"$SSSScale"	"1.0"
-	
-	// Only applied to regular SSS and not $SSSEmission.
-	// Multiplier for the intensity of the SSS Effect. Default of 1.0
-	"$SSSIntensity" "1.0"
-	
-	// Tint for the SSS Color. If the texture does not have an alpha channel,
-	// set blue to 0, this might happen automatically on the shader in a future update.
-	"$SSSTint" "[R G B]"
-	
-	// SSS Emission is a special effect that will output the Emissiontexture multiplied by SSS separetely.
-	// This was intended to add glow to more solid objects like the crystals.
-	// This will force glow to only appear on dark/shadowed areas.
-	// But whether or not we find a use remains to be seen. Default Value is 0.0, its a float.
-	"$SSSEmission" "0.0"
+    // Float. Controls the spread of the SSS. If you can't spread enough, adjust Thickness.
+    // Default is 1.0, but 5 might be more reasonable.
+    "$SSSPower"	"5"
+    
+    // Adjust strength before being applied to anything.
+    // This is useful for when you want $SSSEmission AND regular Emission.
+    // However, it eventually just acts like $SSSEmission itself.
+    "$SSSScale"	"1.0"
+    
+    // Only applied to regular SSS and not $SSSEmission.
+    // Multiplier for the intensity of the SSS Effect. Default of 1.0
+    "$SSSIntensity" "1.0"
+    
+    // Tint for the SSS Color. If the texture does not have an alpha channel,
+    // set blue to 0, this might happen automatically on the shader in a future update.
+    "$SSSTint" "[R G B]"
+    
+    // SSS Emission is a special effect that will output the Emissiontexture multiplied by SSS separetely.
+    // This was intended to add glow to more solid objects like the crystals.
+    // This will force glow to only appear on dark/shadowed areas.
+    // But whether or not we find a use remains to be seen. Default Value is 0.0, its a float.
+    "$SSSEmission" "0.0"
 
 Without SSS
 
@@ -201,7 +201,7 @@ An old development screenshot showing off Lightmap UVs on a Pyramid Model ![An i
  The code for this is always run on models, however by default 0% of it will be applied.
  The parameter that controls to which degree Microshadows are applied is
  
-	// 0.0 is 0%, and 1.0 is 100%
+    // 0.0 is 0%, and 1.0 is 100%
     "$MicroShadows" "0.0"
 
 0% MicroShadows...
@@ -232,25 +232,25 @@ Note that the corners near the keypads are noticeably darker. The amount of occl
  - ### Wetness Porosity
 Displacements additionally receive following Parameters for Blending multiple Textures.
 
-	// Second texture for both Wetness/Porosity AND VectorLayers
-	"$PropertiesTexture2" "path/name"
-	"$WetnessBias2"	"0"
+    // Second texture for both Wetness/Porosity AND VectorLayers
+    "$PropertiesTexture2" "path/name"
+    "$WetnessBias2"	"0"
 
  - ### Vector dependent Layering Textures ( VectorLayers )
 Displacements additionally receive following Parameters for Blending multiple Textures.
 
-	// Second texture for both Wetness/Porosity AND VectorLayers
-	"$PropertiesTexture2" "path/name"
-	"$VectorLayerTexture2" "path/name"
-	"$LayerVector2"	"[X Y Z]"
-	"$LayerVectorSimilarity2" "0.3"
+    // Second texture for both Wetness/Porosity AND VectorLayers
+    "$PropertiesTexture2" "path/name"
+    "$VectorLayerTexture2" "path/name"
+    "$LayerVector2"	"[X Y Z]"
+    "$LayerVectorSimilarity2" "0.3"
 
  - ### Emission Textures ( Also see "Features for Models" )
  Displacements additionally receive following Parameters for Blending multiple Textures.
  ShiroDkxtro2 Note : Second Emission Texture might be broken right now due to a bug with s15.
 
-	// Please note that this texture can not be tinted.
-	"$EmissionTexture2" "path/name"
+    // Please note that this texture can not be tinted.
+    "$EmissionTexture2" "path/name"
 
  - ### Seamless Mapping & $Seamless_Secondary
  For information about Seamless Mapping, [See this VDC Article](https://developer.valvesoftware.com/wiki/$seamless_scale) 
