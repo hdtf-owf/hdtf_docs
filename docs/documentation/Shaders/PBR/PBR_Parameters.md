@@ -48,8 +48,9 @@ Here are available parameters and what they do.
  Also $DetailBlendMode 10 is currently not implemented on Brushes and cannot be implemented on Models.
 
 !!! note
-   Incompatible with `$PropertiesTexture` ( Wetness/Porosity ) due to Sampler Limitation.
+    Incompatible with `$PropertiesTexture` ( Wetness/Porosity ) due to Sampler Limitation.
 
+   
 ### Sub-Surface Scattering
 
 Sub-Surface Scattering should be used sparingly as it does everything a usual shader does **and SSS**.
@@ -202,7 +203,8 @@ As for Lightmap UV's, this requires several custom tools to be used that are cur
 You will have to ask for a rundown on how that works, whats required etc and it assumes you have a very extended knowledge-setabout what lightmap uv's are, how multiple UV's works, how to compile code ( probably ) and what the limitations of model lightmaps in Source are. Also, Blender Lightmap UV pack SUCKS just so you know, it will not give you any decent results AT ALL for this.
 
 !!! note
-   Incompatible with `$PropertiesTexture` ( Wetness/Porosity ) due to Sampler Limitation.
+    Incompatible with `$PropertiesTexture` ( Wetness/Porosity ) due to Sampler Limitation.
+
 
 An old development screenshot showing off Lightmap UVs on a Pyramid Model ![An image of Lightmap UVs in Action](https://i.imgur.com/G38LnVU.jpeg)
 
