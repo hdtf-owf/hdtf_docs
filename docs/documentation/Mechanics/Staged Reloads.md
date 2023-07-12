@@ -8,7 +8,7 @@ page_path: misc/
 {% import 'main_image.html' as image %}
 
 # Staged Reloads
-{{- image.main_image( is_youtube=true, content="T3gaPpjdyCM", footer_text="Video showcasing Staged reload's") -}}
+{{- image.main_image( is_youtube=true, content="T3gaPpjdyCM", footer_text="Video showcasing Staged reload's   The footage is outdated the slide doesn't pop back when pulling the gun out anymore") -}}
 
 HDTF has support for Staged Reloads.
 
