@@ -9,7 +9,7 @@ page_path: misc/
 
 # Staged Reloads
 {{- image.main_image( is_youtube=true, content="T3gaPpjdyCM", footer_text="Video showcasing Staged reload's<br>
-The footage is outdated the slide doesn't pop back when pulling the gun out anymore") -}}
+<b>The footage is outdated the slide doesn't pop back when pulling the gun out anymore</b>") -}}
 
 HDTF has support for Staged Reloads.
 
