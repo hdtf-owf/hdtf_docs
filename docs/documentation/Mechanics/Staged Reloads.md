@@ -1,6 +1,6 @@
 ---
 title: Staged Reloads
-description: "explaining how Staged Reloads in HDTF work"
+description: "Explaining how Staged Reloads in HDTF work"
 hero: "Mechanics: Staged Reloads"
 og_title: "Mechanics: Staged Reloads"
 page_path: misc/
@@ -8,7 +8,8 @@ page_path: misc/
 {% import 'main_image.html' as image %}
 
 # Staged Reloads
-{{- image.main_image( is_youtube=true, content="T3gaPpjdyCM", footer_text="Video showcasing Staged reload's   The footage is outdated the slide doesn't pop back when pulling the gun out anymore") -}}
+{{- image.main_image( is_youtube=true, content="T3gaPpjdyCM", footer_text="Video showcasing Staged reload's<br>
+The footage is outdated the slide doesn't pop back when pulling the gun out anymore") -}}
 
 HDTF has support for Staged Reloads.
 
@@ -19,27 +20,27 @@ the animation events are called
 
  - **`AE_WPN_STAGE_MAGIN`** When the mag is taken out
  - **`AE_WPN_STAGE_EMPTY_MAGIN`** When the gun has 0 ammo in its clip and the mag is taken out
- - **`AE_WPN_STAGE_BOLTRELEASE`** When the gun has a mag inside of it but the bolt hasnt been released
+ - **`AE_WPN_STAGE_BOLTRELEASE`** When the gun has a mag inside of it but the bolt hasn't been released
  - **`AE_WPN_FULLCLIP1`** Fills the clip of the gun to the max clip capacity
  - **`AE_WPN_STAGE_ONEBULLET`** Sets clip to only have 1 bullet and gives back the rest of the ammo that was inside of the clip back into the ammo reserve
  
 these are just basic `Booleans`
 
-they are turned on and off based on a animation frame
+they are turned on and off based on an animation frame
 
 ## Activity Names
 
-the following activity's used for staged reloads are
+the following activities used for staged reloads are
 
  - **`ACT_VM_STAGE_MAGIN`**
  - **`ACT_VM_STAGE_EMPTY_MAGIN`**
  - **`ACT_VM_STAGE_BOLTRELEASE`**
  
-these are the activity's that are called when the corresponding
+these are the activities that are called when the corresponding
 animation event is set to `1`
 
 ## Emaxple Sequences
-here are examples of how you might setup a sequence for staged reloads inside your qc file
+here are examples of how you might set up a sequence for staged reloads inside your qc file
 ### *`ACT_VM_RELOAD`*
 
 ```
@@ -219,8 +220,8 @@ $bodygroup magazine
 
 !!! Note
 	
-	the Mesh of the gun needs to be made withouth a magazine on it
-	and the mag needs to be a mesh withouth a weapon on it 
+	the Mesh of the gun needs to be made without a magazine on it
+	and the mag needs to be a mesh without a weapon on it 
 	
 	you can use your normal mesh to do this
 
