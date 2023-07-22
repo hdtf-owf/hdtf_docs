@@ -18,7 +18,6 @@ plugins:
        slide_effect: slide
        width: 100vh
        height: auto
-       height-min: 100%
        zoomable: true
        draggable: true
        auto_caption: false
@@ -26,9 +25,6 @@ plugins:
   - macros:
       include_dir: _includes
 
-
-extra_css:
-  - stylesheets/extra.css
 
 theme:
   features:
@@ -39,12 +35,15 @@ theme:
   palette:
     scheme: slate
     accent: red
+    primary: custom
   highlightjs: true
   custom_dir: 'theme'
   hljs_languages:
      - yaml
      - rust
      - c++
+extra_css:
+  - stylesheets/extra.css
 markdown_extensions:
   - admonition
   - pymdownx.details
