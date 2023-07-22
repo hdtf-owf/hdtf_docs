@@ -1,0 +1,1449 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Docs for features in HDTF">
+      
+      
+        <meta name="author" content="Nbc66">
+      
+      
+        <link rel="canonical" href="https://nbc66.github.io/hdtf_docs/documentation/Shaders/PBR/PBR_Parameters/">
+      
+      
+        <link rel="prev" href="../2._PBR_Textures/">
+      
+      
+        <link rel="next" href="../../../Sound/FMOD%20Studio%20and%20entity%20usage/">
+      
+      <link rel="icon" href="../../../../images/icon/hdtf_icon.jpg">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.19">
+    
+    
+      
+        <title>PBR Parameters - Hunt Down The Freeman: Tech Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ecc896b0.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+    
+    
+
+    
+        <meta property="og:type" content="website" />
+    
+
+    <meta property="og:url" content="https://nbc66.github.io/hdtf_docs/documentation/Shaders/PBR/PBR_Parameters/" />
+
+    
+    
+        <meta property="og:image:url" content="https://nbc66.github.io/hdtf_docs/images/icon/hdtf_icon.jpg" />
+        <meta property="twitter:image" content="https://nbc66.github.io/hdtf_docs/images/icon/hdtf_icon.jpg" />
+    
+
+    
+        <meta property="og:image:type" content="image/png" />
+    
+
+    
+        <meta property="og:description" content="Docs for features in HDTF">
+    
+
+    <meta property="og:locale" content="en-GB" />
+
+   <link href="../../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="red">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pbr-parameters" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Hunt Down The Freeman: Tech Docs" class="md-header__button md-logo" aria-label="Hunt Down The Freeman: Tech Docs" data-md-component="logo">
+      
+  <img src="../../../../images/icon/hdtf_icon.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Hunt Down The Freeman: Tech Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PBR Parameters
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Nbc66/hdtf_docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Nbc66/hdtf_docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Technical Docs
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../Mechanics/Staged%20Reloads/" class="md-tabs__link md-tabs__link--active">
+        Documentation
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Hunt Down The Freeman: Tech Docs" class="md-nav__button md-logo" aria-label="Hunt Down The Freeman: Tech Docs" data-md-component="logo">
+      
+  <img src="../../../../images/icon/hdtf_icon.jpg" alt="logo">
+
+    </a>
+    Hunt Down The Freeman: Tech Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Nbc66/hdtf_docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Nbc66/hdtf_docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Technical Docs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Documentation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Documentation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Mechanics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Mechanics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mechanics/Staged%20Reloads/" class="md-nav__link">
+        Staged Reloads
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Mechanics/Viewmodel%20Arms/" class="md-nav__link">
+        Viewmodel Arms
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Shaders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Shaders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          PBR
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          PBR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1._VMT_for_Dummies/" class="md-nav__link">
+        VMTs 101
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2._PBR_Textures/" class="md-nav__link">
+        PBR Textures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PBR Parameters
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        PBR Parameters
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shader-names" class="md-nav__link">
+    Shader Names
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-for-models" class="md-nav__link">
+    Features for Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Features for Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wetness-porosity" class="md-nav__link">
+    Wetness Porosity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-textures" class="md-nav__link">
+    Detail Textures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-surface-scattering" class="md-nav__link">
+    Sub-Surface Scattering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bent-normals" class="md-nav__link">
+    Bent Normals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sheen" class="md-nav__link">
+    Sheen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-dependent-layering-textures-vectorlayers" class="md-nav__link">
+    Vector dependent Layering Textures ( VectorLayers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-textures" class="md-nav__link">
+    Emission Textures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-lightmapping-lightmap-uvs" class="md-nav__link">
+    Model Lightmapping &amp; Lightmap UV's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#micro-shadows" class="md-nav__link">
+    Micro Shadows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-for-brushes" class="md-nav__link">
+    Features for Brushes
+  </a>
+  
+    <nav class="md-nav" aria-label="Features for Brushes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallax-corrected-cubemaps" class="md-nav__link">
+    Parallax Corrected Cubemaps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-these-see-features-for-models" class="md-nav__link">
+    For these, see "Features for Models"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wetness-porosity_1" class="md-nav__link">
+    Wetness Porosity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-textures_1" class="md-nav__link">
+    Detail Textures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-dependent-layering-textures-vectorlayers_1" class="md-nav__link">
+    Vector dependent Layering Textures ( VectorLayers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-textures_1" class="md-nav__link">
+    Emission Textures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-for-displacements" class="md-nav__link">
+    Features for Displacements
+  </a>
+  
+    <nav class="md-nav" aria-label="Features for Displacements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wetness-porosity_2" class="md-nav__link">
+    Wetness Porosity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-dependent-layering-textures-vectorlayers_2" class="md-nav__link">
+    Vector dependent Layering Textures ( VectorLayers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-textures-also-see-features-for-models" class="md-nav__link">
+    Emission Textures ( Also see "Features for Models" )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seamless-mapping-seamless_secondary" class="md-nav__link">
+    Seamless Mapping &amp; $Seamless_Secondary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallax-occlusion-mapping" class="md-nav__link">
+    Parallax Occlusion Mapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallax-corrected-cubemaps-see-features-for-brushes" class="md-nav__link">
+    Parallax Corrected Cubemaps ( See "Features for Brushes" )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-textures-see-features-for-models" class="md-nav__link">
+    Detail Textures ( See "Features for Models" )
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    Other Parameters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Sound
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Sound
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Sound/FMOD%20Studio%20and%20entity%20usage/" class="md-nav__link">
+        FMOD Studio
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shader-names" class="md-nav__link">
+    Shader Names
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-for-models" class="md-nav__link">
+    Features for Models
+  </a>
+  
+    <nav class="md-nav" aria-label="Features for Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wetness-porosity" class="md-nav__link">
+    Wetness Porosity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-textures" class="md-nav__link">
+    Detail Textures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sub-surface-scattering" class="md-nav__link">
+    Sub-Surface Scattering
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bent-normals" class="md-nav__link">
+    Bent Normals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sheen" class="md-nav__link">
+    Sheen
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-dependent-layering-textures-vectorlayers" class="md-nav__link">
+    Vector dependent Layering Textures ( VectorLayers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-textures" class="md-nav__link">
+    Emission Textures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model-lightmapping-lightmap-uvs" class="md-nav__link">
+    Model Lightmapping &amp; Lightmap UV's
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#micro-shadows" class="md-nav__link">
+    Micro Shadows
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-for-brushes" class="md-nav__link">
+    Features for Brushes
+  </a>
+  
+    <nav class="md-nav" aria-label="Features for Brushes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parallax-corrected-cubemaps" class="md-nav__link">
+    Parallax Corrected Cubemaps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-these-see-features-for-models" class="md-nav__link">
+    For these, see "Features for Models"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wetness-porosity_1" class="md-nav__link">
+    Wetness Porosity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-textures_1" class="md-nav__link">
+    Detail Textures
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-dependent-layering-textures-vectorlayers_1" class="md-nav__link">
+    Vector dependent Layering Textures ( VectorLayers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-textures_1" class="md-nav__link">
+    Emission Textures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features-for-displacements" class="md-nav__link">
+    Features for Displacements
+  </a>
+  
+    <nav class="md-nav" aria-label="Features for Displacements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#wetness-porosity_2" class="md-nav__link">
+    Wetness Porosity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vector-dependent-layering-textures-vectorlayers_2" class="md-nav__link">
+    Vector dependent Layering Textures ( VectorLayers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#emission-textures-also-see-features-for-models" class="md-nav__link">
+    Emission Textures ( Also see "Features for Models" )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seamless-mapping-seamless_secondary" class="md-nav__link">
+    Seamless Mapping &amp; $Seamless_Secondary
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallax-occlusion-mapping" class="md-nav__link">
+    Parallax Occlusion Mapping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallax-corrected-cubemaps-see-features-for-brushes" class="md-nav__link">
+    Parallax Corrected Cubemaps ( See "Features for Brushes" )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detail-textures-see-features-for-models" class="md-nav__link">
+    Detail Textures ( See "Features for Models" )
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-parameters" class="md-nav__link">
+    Other Parameters
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="pbr-parameters">PBR Parameters</h1>
+<h2 id="shader-names">Shader Names</h2>
+<ul>
+<li>PBR for Brushes</li>
+<li>PBR_MODEL for models</li>
+<li>Use $BaseTexture2, $MRAOTexture2, $BumpMap2.... for Blended Materials ( Displacements )</li>
+</ul>
+<p><strong>IMPORTANT</strong></p>
+<p>Having your material inside <code>materials/models/</code> folder will automatically force <code>$model</code> flag and thus PBR_MODEL</p>
+<h2 id="features-for-models">Features for Models</h2>
+<h3 id="wetness-porosity">Wetness Porosity</h3>
+<p>Wetness | Porosity are special surface properties that are more or less intuitive for Artists to define a mask for.
+Additionally because this is a separate function it can be used to dynamically ramp up the wetness of materials.
+This can be very useful if a map requires accumulating material wetness, for example when initially there is no rain. Or vice versa.-If rain is going away</p>
+<p>Wetness is Masked by using the RED Channel of the  $PropertiesTexture
+Porosity is Masked by using the GREEN Channel of the $PropertiesTexture
+The $PropertiesTexture has two channels remaining that are used for VectorLayer Textures!</p>
+<p>Here are available parameters and what they do.</p>
+<div class="highlight"><pre><span></span><code>// Defines a mask for the Effect. This has to be set in order to use Wetness/Porosity.
+// However, just defining a black texture allows you to simply bias Wetness, but not Porosity.
+&quot;$PropertiesTexture&quot; &quot;path/name&quot;
+
+// Enables Wetness/Porosity behaviour. This is a separate bool because of VectorLayers
+&quot;$WetnessPorosity&quot; &quot;1&quot;
+
+// Levels Wetness. -1 will entirely remove wetness. ( Proxies may be used to modify this )
+&quot;$WetnessBias&quot; &quot;-1&quot;
+</code></pre></div>
+<p>Rock without Wetness ( or rather, it has -1 bias )
+ <a class="glightbox" href="https://i.imgur.com/ByGN06R.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="Cliff model from Urban Chaos with no Wetness" src="https://i.imgur.com/ByGN06R.jpeg" /></a>
+ Note that this is full wetness and its not really masked. Up-Facing Normals will be forced to 1, which will give the appearance of full submersion of the material.</p>
+<p><a class="glightbox" href="https://i.imgur.com/XWOf2HB.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="Cliff model from Urban Chaos with full Wetness" src="https://i.imgur.com/XWOf2HB.jpeg" /></a></p>
+<h3 id="detail-textures">Detail Textures</h3>
+<p>See <a href="https://developer.valvesoftware.com/wiki/$detail">Detail Textures on the Valve Developer Community ( VDC )</a></p>
+<p>Note that some of the Blendmodes might have unexpected results. ( BlendMode 11 )
+ Also $DetailBlendMode 10 is currently not implemented on Brushes and cannot be implemented on Models.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Incompatible with <code>$PropertiesTexture</code> ( Wetness/Porosity ) due to Sampler Limitation.</p>
+</div>
+<h3 id="sub-surface-scattering">Sub-Surface Scattering</h3>
+<p>Sub-Surface Scattering should be used sparingly as it does everything a usual shader does <strong>and SSS</strong>.
+The effect itself will not be explained, you can use online reference for that instead.
+In our Shader there are various parameters to control the effect, here they are.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>// Refer to PBR Textures, R is the Thickness, GBA is RGB Color.
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>&quot;$SSSTexture&quot; &quot;path/name&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>// Float. Controls the spread of the SSS. If you can&#39;t spread enough, adjust Thickness.
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>// Default is 1.0, but 5 might be more reasonable.
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>&quot;$SSSPower&quot; &quot;5&quot;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>// Adjust strength before being applied to anything.
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>// This is useful for when you want $SSSEmission AND regular Emission.
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>// However, it eventually just acts like $SSSEmission itself.
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>&quot;$SSSScale&quot; &quot;1.0&quot;
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>// Only applied to regular SSS and not $SSSEmission.
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>// Multiplier for the intensity of the SSS Effect. Default of 1.0
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>&quot;$SSSIntensity&quot; &quot;1.0&quot;
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>// Tint for the SSS Color. If the texture does not have an alpha channel,
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>// set blue to 0, this might happen automatically on the shader in a future update.
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>&quot;$SSSTint&quot; &quot;[R G B]&quot;
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>// SSS Emission is a special effect that will output the Emissiontexture multiplied by SSS separetely.
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>// This was intended to add glow to more solid objects like the crystals.
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>// This will force glow to only appear on dark/shadowed areas.
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>// But whether or not we find a use remains to be seen. Default Value is 0.0, its a float.
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>&quot;$SSSEmission&quot; &quot;0.0&quot;
+</code></pre></div>
+<p>Without SSS
+<a class="glightbox" href="https://i.imgur.com/nzli9bK.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="&quot;Dyson&quot; Model from Urban Chaos without SSS " src="https://i.imgur.com/nzli9bK.jpeg" /></a></p>
+<p>With slight SSS
+<a class="glightbox" href="https://i.imgur.com/ZlMleFJ.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="&quot;Dyson&quot; Model from Urban Chaos with SSS " src="https://i.imgur.com/ZlMleFJ.jpeg" /></a></p>
+<p>"Overgrown" dark side using <code>$SSSEmission</code>.
+<a class="glightbox" href="https://i.imgur.com/4uWGlzU.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="&quot;Dyson&quot; Model from Urban Chaos but he has an Crystal Infestation or something" src="https://i.imgur.com/4uWGlzU.jpeg" /></a></p>
+<h3 id="bent-normals">Bent Normals</h3>
+<p>Explanation you must find online.
+Bent Normals will occlude only occlude specular reflection areas and is a separate texture from the actual $BumpMap!
+This effect can be activated using</p>
+<p><code>"$BentNormal" "path/name"</code></p>
+<p>The Bent Normal must be in Tangent Space!
+And it might only have real visible effects on models with actual self occlusion.</p>
+<p>Without Bent Normals
+<a class="glightbox" href="https://i.imgur.com/9QaR6h5.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="Cloth Model without Bent Normals" src="https://i.imgur.com/9QaR6h5.jpeg" /></a>
+With Bent Normals
+<a class="glightbox" href="https://i.imgur.com/S7WBW9L.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="Cloth Model with Bent Normals" src="https://i.imgur.com/S7WBW9L.jpeg" /></a></p>
+<h3 id="sheen">Sheen</h3>
+<p>To be done. Currently kind of broken, its there but eeeeeeehhhh don't use it kk?</p>
+<p><code>$Sheen</code> and <code>$SheenIntensity</code></p>
+<p>Incompatible with <code>$EmissionTexture</code></p>
+<h3 id="vector-dependent-layering-textures-vectorlayers">Vector dependent Layering Textures ( VectorLayers )</h3>
+<p>VectorLayers are textures that are being applied to a model/brush/displacement depending on a user defined Vector ( Direction ).
+This was intended as a way to give a more discrete look to surfaces on the Alaska map,
+by adding thin layers of ice or snow materials to upwards facing surfaces ( "[0 0 1]" ).
+It may be used for others effects. Some ideas :</p>
+<ol>
+<li>Dust Accumulation</li>
+<li>Sand Accumulation</li>
+<li>Snow Accumulation</li>
+<li>Blood Accumulation</li>
+<li>Spider Webs</li>
+<li>Fire Burn Mark Spreading Texture</li>
+<li>Liquid Flow Restriction ( Liquids should only be on surfaces that point upwards. )</li>
+</ol>
+<p>Vector Layers do not have their own Normal Maps and will thus not affect the actual thickness of its own layer.
+Additionally they do not have their own metallic properties, this was done for several reasons.</p>
+<ol>
+<li>All of the above shouldn't be metallic.</li>
+<li>These are supposed to be THIN layers, they should not affect the underlying material surface normals</li>
+</ol>
+<p>Using a VectorLayer requires two textures. You can find more information about them in the documentation about Textures and their requirements.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>// The actual Texture to be applied to that Vector. Alpha is Ambient Occlusion.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>// Specifying this, will enable the effect.
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&quot;$VectorLayerTexture&quot;  &quot;path/name&quot;
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>// Required for VectorLayers. Blue Channel masks the Layer and Alpha is Roughness
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>&quot;$PropertiesTexture&quot;  &quot;path/name&quot;
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>// The Vector to apply the texture on. &quot;[0 0 1]&quot; faces upwards. -1 downwards.
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>// Sadly you cannot apply it to two vectors ( &quot;[0 0 1]&quot; &amp;&amp; &quot;[0 0 -1]&quot; ) at the same time.
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>&quot;$LayerVector&quot;     &quot;[X Y Z]&quot;  
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>// Smoothsteps the blending factor. The tolerance between facenormal and $LayerVector
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>// Default Value is 0.3
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>&quot;$LayerVectorSimilarity&quot; &quot;0.3&quot;
+</code></pre></div>
+<h3 id="emission-textures">Emission Textures</h3>
+<p>$EmissionTexture's are added through addition to the results of the Shader.
+This means that it will display the $EmissionTexture regardless of light conditions or other occlusions.
+Note that for a bloom effect to appear, you must have <em>some</em> information the $BaseTexture.
+Over-brightening ( and thus bloom ) will only occur when the Results are above white.</p>
+<p>Note :
+Incompatible with $PropertiesTexture.
+These surfaces will glow because they are Incandescent, the surfaces are heated to &gt;525°C and we disabled this combo because if water touched this surface it would literally just explode.
+( Seriously  though, we disabled it to get faster compiles, we deemed this combo to be very unlikely to occur )
+Also Incompatible with Sheen.</p>
+<p>Here are available parameters and what they do.</p>
+<div class="highlight"><pre><span></span><code>// Path/Name of the Texture to be used for Emission.
+&quot;$EmissionTexture&quot; &quot;path/name&quot;
+
+// Tints the Emission. Default Values are &quot;[1 1 1]&quot;
+&quot;$EmissionTint&quot;  &quot;[R G B]&quot;
+
+// See Sub-Surface Scattering for more information.
+&quot;$SSSEmission&quot;  &quot;1&quot;
+</code></pre></div>
+<p><a class="glightbox" href="https://i.imgur.com/5Hi6GTB.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="Xen Bulb without Emission" src="https://i.imgur.com/5Hi6GTB.jpeg" /></a>
+<a class="glightbox" href="https://i.imgur.com/fTxAqlx.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="Xen Bulb with Emission" src="https://i.imgur.com/fTxAqlx.jpeg" /></a></p>
+<h3 id="model-lightmapping-lightmap-uvs">Model Lightmapping &amp; Lightmap UV's</h3>
+<p>Non-Bumped Model Lightmaps are supported on our Shader.
+Dynamic light entities ( such as projected textures or named lights ) still cause a specular highlight through the bumpmap.Otherwise, static lights will have their lighting baked. This is ideal if you want nice Shadows for a Model.</p>
+<p>You can use this feature by enabling lightmaps for a prop_static in Hammer.
+Models that want to use Lightmaps must have $NormalTexture set to the NormalMap, and $bumpmap to literally any gibberish you can think of, it just needs to be defined ( as something other than " " ) in the VMT!</p>
+<p>Note that all previous limitations applied except for the $BumpMap restriction.
+If you want to use this feature, you are required to have some serious understanding on how models work.
+Simply enabling it for your random models will not give you meaningful results.
+Model Lightmaps require a Unique set of UV's, if the UV's are overlapping with eachother, mirrored or go out of the 0-1 range in either X or Y ( U or V ) this feature will not be usable.
+Like,<strong>REALLY</strong>, if you don't know what you are doing, don't bother!!!</p>
+<p>As for Lightmap UV's, this requires several custom tools to be used that are currently still in development.
+You will have to ask for a rundown on how that works, whats required etc and it assumes you have a very extended knowledge-setabout what lightmap uv's are, how multiple UV's works, how to compile code ( probably ) and what the limitations of model lightmaps in Source are. Also, Blender Lightmap UV pack SUCKS just so you know, it will not give you any decent results AT ALL for this.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Incompatible with <code>$PropertiesTexture</code> ( Wetness/Porosity ) due to Sampler Limitation.</p>
+</div>
+<p>An old development screenshot showing off Lightmap UVs on a Pyramid Model <a class="glightbox" href="https://i.imgur.com/G38LnVU.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="An image of Lightmap UVs in Action" src="https://i.imgur.com/G38LnVU.jpeg" /></a></p>
+<h3 id="micro-shadows">Micro Shadows</h3>
+<p>Microshadows are a technique to enhance Light Occlusion in Ambient Occluded areas through the use of the Light-Direction, Normal Map and Ambient Occlusion Texture.
+The code for this is always run on models, however by default 0% of it will be applied.
+The parameter that controls to which degree Microshadows are applied is:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>// 0.0 is 0%, and 1.0 is 100%
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>&quot;$MicroShadows&quot; &quot;0.0&quot;
+</code></pre></div>
+<p>0% MicroShadows...
+<a class="glightbox" href="https://i.imgur.com/VVUNS9h.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="An image of some props with no Microshadows" src="https://i.imgur.com/VVUNS9h.jpeg" /></a></p>
+<p>100% MicroShadows.
+<a class="glightbox" href="https://i.imgur.com/7jrTWs0.jpeg" data-type="image" data-width="100vh" data-height="auto" data-desc-position="bottom"><img alt="An image of some props with Microshadows" src="https://i.imgur.com/7jrTWs0.jpeg" /></a>
+Note that the corners near the keypads are noticeably darker. The amount of occlusion and direction depends on that of the light which is shining upon the model.</p>
+<h2 id="features-for-brushes">Features for Brushes</h2>
+<h3 id="parallax-corrected-cubemaps">Parallax Corrected Cubemaps</h3>
+<p>Parallax Corrected Cubemaps are Cubemaps that are being corrected for Parallax...
+OK, but what does that mean?
+It means that the Cubemaps that is applied to brushes will be stretched to a predefined boundary area.
+This will essentially align the reflections with the scenery objects and the boundary of a room.
+This is unideal if the middle of the room is obstructed by objects and it cannot really be used for non-rectangular rooms. Use non-rectangular rooms and PCC at your own potential waste of time!
+As for how to use them,
+<a href="https://mrkleiner.github.io/source_tricks/?lt=7780847a">See this Tutorial on Source Tricks Website</a></p>
+<h3 id="for-these-see-features-for-models">For these, see "Features for Models"</h3>
+<h3 id="wetness-porosity_1">Wetness Porosity</h3>
+<h3 id="detail-textures_1">Detail Textures</h3>
+<h3 id="vector-dependent-layering-textures-vectorlayers_1">Vector dependent Layering Textures ( VectorLayers )</h3>
+<h3 id="emission-textures_1">Emission Textures</h3>
+<h2 id="features-for-displacements">Features for Displacements</h2>
+<h3 id="wetness-porosity_2">Wetness Porosity</h3>
+<p>Displacements additionally receive following Parameters for Blending multiple Textures.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>// Second texture for both Wetness/Porosity AND VectorLayers
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>&quot;$PropertiesTexture2&quot; &quot;path/name&quot;
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>&quot;$WetnessBias2&quot; &quot;0&quot;
+</code></pre></div>
+<h3 id="vector-dependent-layering-textures-vectorlayers_2">Vector dependent Layering Textures ( VectorLayers )</h3>
+<p>Displacements additionally receive following Parameters for Blending multiple Textures.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>// Second texture for both Wetness/Porosity AND VectorLayers
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>&quot;$PropertiesTexture2&quot; &quot;path/name&quot;
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>&quot;$VectorLayerTexture2&quot; &quot;path/name&quot;
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>&quot;$LayerVector2&quot; &quot;[X Y Z]&quot;
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>&quot;$LayerVectorSimilarity2&quot; &quot;0.3&quot;
+</code></pre></div>
+<h3 id="emission-textures-also-see-features-for-models">Emission Textures ( Also see "Features for Models" )</h3>
+<p>Displacements additionally receive following Parameters for Blending multiple Textures.
+ShiroDkxtro2 Note : Second Emission Texture might be broken right now due to a bug with s15.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>// Please note that this texture can not be tinted.
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>&quot;$EmissionTexture2&quot; &quot;path/name&quot;
+</code></pre></div>
+<h3 id="seamless-mapping-seamless_secondary">Seamless Mapping &amp; $Seamless_Secondary</h3>
+<p>For information about Seamless Mapping, <a href="https://developer.valvesoftware.com/wiki/$seamless_scale">See this VDC Article</a>
+Now for the interesting part. $Seamless_Secondary
+ShiroDkxtro2 : As of today ( 17.04.2023 DMY ), this feature has not been fully implemented and seamless is kinda broken too.
+I will fix it as soon as I can. But this DOES work on LUX_ Shaders!</p>
+<p>Seamless Secondary allows to only have the second material to be seamless. This is very useful if you want to retain texture alignment whilst being able to account for stretchy textures on strong displacement inclines.</p>
+<h3 id="parallax-occlusion-mapping">Parallax Occlusion Mapping</h3>
+<p>No explanation given. Its Heightmapping.
+NOTE: This is VERY expensive at the moment. Don't use it on very large surfaces or dare even attempt to use it on most materials in your scene, it will <strong>DESTROY</strong> your FPS.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>// Turns the effect on. Uses Alpha Channel of the Normal Map for the Height Map
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>&quot;$ParallaxMapping&quot; &quot;1&quot;
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>// You have to play around with the value, it currently doesn&#39;t make much sense...
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>&quot;$ParallaxHeight&quot; &quot;0&quot;
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>// Same for the above.
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>&quot;$ParallaxMaxOffSet&quot; &quot;0&quot;
+</code></pre></div>
+<h3 id="parallax-corrected-cubemaps-see-features-for-brushes">Parallax Corrected Cubemaps ( See "Features for Brushes" )</h3>
+<h3 id="detail-textures-see-features-for-models">Detail Textures ( See "Features for Models" )</h3>
+<h2 id="other-parameters">Other Parameters</h2>
+<p>I will only list the parameters because it would be far too tedious to list what they do.
+Its mostly self-explanatory anyways or somehow already documented on the VDC.
+Just check if what you are looking for exists.</p>
+<p>Parameters :
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>-----------------------------------------------------------------------------
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>//////////////////////////////////////////////////
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>// Actually implemented and working parameters //
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>//////////////////////////////////////////////////
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>// All Frame Vars :
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>$BumpFrame
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>$BumpFrame2
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>$Frame
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>$Frame2
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>$MRAOFrame
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>$BlendMaskFrame
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>// This will transform Base, MRAO, properties and vectorlayer.
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>$BaseTextureTransform
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>$BaseTextureTransform2
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>// Only transforms Bumpmaps
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>$BumpTransform
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a>$BumpTransform2
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a>// Only for BlendModulate.
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>$BlendMaskTransform
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a>// Texture I forgot to mention.
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a>$BlendModulateTexture
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a>// Tints your $BaseTexture
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a>$BaseTextureTint
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a>$BaseTextureTint2
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a>// EnvMapping Parameters
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a>$EnvMap &quot;custom envmap&quot;
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a>$EnvMapFrame &quot;int&quot;
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a>$EnvMapTint &quot;[R G B]&quot;
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a>$EnvMapContrast &quot;float&quot;
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a>$EnvMapSaturation &quot;float&quot;
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a>$EnvMapLightScale &quot;default 0, 1 will multiply reflections by lighting&quot;
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a>// Biases the MRAO&#39;s -1 will remove M, R or AO and +1 will force it to full white!
+<a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a>$MRAOBias
+<a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a>$MRAOBias2
+<a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a>
+<a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a>// Default value of 0.025f ( Average between 0.01 and 0.04 )
+<a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a>// No explanation because you should know what this is if you want to change it.
+<a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a>$DiElectricCoEfficient
+<a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a>
+<a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a>// You can manually set a lightmap if you so desire.
+<a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a>$LightMap
+<a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a>
+<a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a>// Only touch this if you truly know what you are doing.
+<a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a>$LightMapUVs &quot;0 | 1&quot;
+<a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a>
+<a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a>//////////////////////////////////////////////////
+<a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a>// Parameters that exist right now but unused  //
+<a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a>//////////////////////////////////////////////////
+<a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a>$SelfIllum_EnvMapMask_Alpha
+<a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a>$color
+<a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a>$color2
+<a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a>$BlendTintByBaseAlpha
+<a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a>$BlendTintColorOverBase
+<a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a>$BlendTintColorOverBase2
+<a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a>$FresnelReflection
+<a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a>$EnvMapFresnel
+<a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a>$EnvMapFresnelMinMaxExp
+<a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a>// This was supposed to be used on PBR_OVERRIDE
+<a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a>$EnvMapMask
+<a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a>$EnvMapMaskFrame
+<a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a>$EnvMapMaskTransform
+<a id="__codelineno-7-67" name="__codelineno-7-67" href="#__codelineno-7-67"></a>
+<a id="__codelineno-7-68" name="__codelineno-7-68" href="#__codelineno-7-68"></a>//////////////////////////////////////////////////////////////////////////////
+<a id="__codelineno-7-69" name="__codelineno-7-69" href="#__codelineno-7-69"></a>// Features that are undetermined to be implemented or not yet implemented //
+<a id="__codelineno-7-70" name="__codelineno-7-70" href="#__codelineno-7-70"></a>//////////////////////////////////////////////////////////////////////////////
+<a id="__codelineno-7-71" name="__codelineno-7-71" href="#__codelineno-7-71"></a>$Hullshell
+<a id="__codelineno-7-72" name="__codelineno-7-72" href="#__codelineno-7-72"></a>$DitheredAlpha
+<a id="__codelineno-7-73" name="__codelineno-7-73" href="#__codelineno-7-73"></a>$MRAOFrame2
+<a id="__codelineno-7-74" name="__codelineno-7-74" href="#__codelineno-7-74"></a>$ParallaxIntensity
+<a id="__codelineno-7-75" name="__codelineno-7-75" href="#__codelineno-7-75"></a>// We have some Parallax Interval code, but it just looks worse when compared to POM.
+<a id="__codelineno-7-76" name="__codelineno-7-76" href="#__codelineno-7-76"></a>$ParallaxInterval
+<a id="__codelineno-7-77" name="__codelineno-7-77" href="#__codelineno-7-77"></a>// These are semi implemented
+<a id="__codelineno-7-78" name="__codelineno-7-78" href="#__codelineno-7-78"></a>$SpecularTexture
+<a id="__codelineno-7-79" name="__codelineno-7-79" href="#__codelineno-7-79"></a>$SpecularTexture2
+<a id="__codelineno-7-80" name="__codelineno-7-80" href="#__codelineno-7-80"></a>// Wrinkle Mapping
+<a id="__codelineno-7-81" name="__codelineno-7-81" href="#__codelineno-7-81"></a>$Compress
+<a id="__codelineno-7-82" name="__codelineno-7-82" href="#__codelineno-7-82"></a>$Stretch
+<a id="__codelineno-7-83" name="__codelineno-7-83" href="#__codelineno-7-83"></a>$BumpCompress
+<a id="__codelineno-7-84" name="__codelineno-7-84" href="#__codelineno-7-84"></a>$BumpStretch
+<a id="__codelineno-7-85" name="__codelineno-7-85" href="#__codelineno-7-85"></a>
+<a id="__codelineno-7-86" name="__codelineno-7-86" href="#__codelineno-7-86"></a>//////////////////////////////////////////////////
+<a id="__codelineno-7-87" name="__codelineno-7-87" href="#__codelineno-7-87"></a>// Internal Parameters that you shouldn&#39;t touch //
+<a id="__codelineno-7-88" name="__codelineno-7-88" href="#__codelineno-7-88"></a>//////////////////////////////////////////////////
+<a id="__codelineno-7-89" name="__codelineno-7-89" href="#__codelineno-7-89"></a>// MaterialName is stored on this.
+<a id="__codelineno-7-90" name="__codelineno-7-90" href="#__codelineno-7-90"></a>// Kind of a HACKHACK I had to do because theres no access later-on for materialnames
+<a id="__codelineno-7-91" name="__codelineno-7-91" href="#__codelineno-7-91"></a>$MaterialName &quot;String&quot;
+<a id="__codelineno-7-92" name="__codelineno-7-92" href="#__codelineno-7-92"></a>// This is used to turn on WVT internally.
+<a id="__codelineno-7-93" name="__codelineno-7-93" href="#__codelineno-7-93"></a>// Define $basetexture2 or any secondary texture and this will be set to 1.
+<a id="__codelineno-7-94" name="__codelineno-7-94" href="#__codelineno-7-94"></a>$InternalBoolWVT &quot;0 | 1&quot;
+<a id="__codelineno-7-95" name="__codelineno-7-95" href="#__codelineno-7-95"></a>
+<a id="__codelineno-7-96" name="__codelineno-7-96" href="#__codelineno-7-96"></a>// PCC Parameters that are set automatically when compiling the map.
+<a id="__codelineno-7-97" name="__codelineno-7-97" href="#__codelineno-7-97"></a>$EnvMapParallax
+<a id="__codelineno-7-98" name="__codelineno-7-98" href="#__codelineno-7-98"></a>$EnvMapParallaxOBB1
+<a id="__codelineno-7-99" name="__codelineno-7-99" href="#__codelineno-7-99"></a>$EnvMapParallaxOBB2
+<a id="__codelineno-7-100" name="__codelineno-7-100" href="#__codelineno-7-100"></a>$EnvMapParallaxOBB3
+<a id="__codelineno-7-101" name="__codelineno-7-101" href="#__codelineno-7-101"></a>$EnvMapOrigin
+</code></pre></div></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "fade", "closeEffect": "fade", "slideEffect": "slide"});})</script></body>
+</html>
